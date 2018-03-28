@@ -5,7 +5,7 @@ Maze solver.
 Bhavesh Shah, George Shey
 
 ## statement of problem
-Does the boolean value of whether or not a path between the start and 'treasure' of the maze exists return true?
+Is the boolean value, of whether or not a path between the start and 'treasure' of the maze exists, true?
 
 ## recursive abstraction
 If asked to solve a maze, the recursive abstraction can solve a maze of size n-1 hallways. 
