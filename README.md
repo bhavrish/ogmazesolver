@@ -18,13 +18,13 @@ Base case would solve a maze with only 1 hallway. For mazes that have more than 
 
 ## class(es), with fields and methods
 Maze Class:
-Constructor that creates a board of size n.
-Size method.
-Conditions method (checks to see if object hits wall or not).
-Tostring method that prints solution to maze.
+1) Constructor that creates a board of size n.
+2) Size method.
+3) Conditions method (checks to see if object hits wall or not).
+4) Tostring method that prints solution to maze.
 
 Maze Solver Class:
-Method that solves tha maze.
+1) Method that solves tha maze.
 
 ## version*n* wish list
 Version 0:
