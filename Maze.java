@@ -75,34 +75,16 @@ public class Maze {
         }
         
         explorerPosition = new Vector().add( explorerRank, explorerFile);
-        // // for debugging: report explorer's location
-        // System.out.println( "explorer at " + explorerPosition.rank
-                          // + ", " +           explorerPosition.file);
     }
 
-
-    /**
-      Copy-construct an instance.
-      Deep copy of all instance fields.
-     */
     public Maze( Maze old) {
-
-        // Copy the explorer's position (code by Holmes is asserted to work)
         explorerPosition = new Vector( old.explorerPosition);
 
         throw new java.lang.RuntimeException(
             "Write code to copy the maze[][] array and rankCount.");
     }
 
-
-    /**
-      @return a string representing of this instance
-     */
     public String toString() {
-        
-        /* characters that represent elements of the maze,
-           indexed by the numbers used to represent elements
-          */
         final String outChar = "0 *";  // no explorer here
         final String exOnTop = "!Ee";  /* explorer on top of
            treasure, wall, stepping stone, etc. */
@@ -132,14 +114,6 @@ public class Maze {
         return   result + aboveAndBelow;
     }
 
-
-    /**
-      Move the Explorer a step in the indicated direction.
-      Attempting to position the explorer outside the maze means
-      it has no position.
-      
-      @precondition: explorer starts in a valid position
-     */
     public void go( int direction)  { 
         switch( direction) {
             case EAST:
@@ -157,35 +131,16 @@ public class Maze {
         }
     }
 
-
-    /**
-      Modify the maze to have @mazeElement in the explorer's position.
-      Nix dropping treasure.
-     */
     public void dropA( int mazeElement) {
         if( mazeElement != TREASURE)
             maze[ explorerPosition.rank][ explorerPosition.file] = mazeElement;
     }
 
-
-    /**
-      @return the MazeElement that the explorer is on.
-              When the explorer's position is null, return WALL
-              because the user-programmer's code is expected to benefit
-              from that equivalence.
-     */
     public int explorerIsOnA() {
         if( explorerPosition == null) return WALL;
         else return maze[ explorerPosition.rank][ explorerPosition.file];
     }
 
-
-    /**
-       a pair of rank & file that can represent...
-         o  a displacement from the current location
-         o  a location in a maze, being a displacement from (0,0)
-       A location outside the maze is represented by a null Vector.
-     */
     private class Vector {
         private int rank, file;
         
@@ -198,31 +153,15 @@ public class Maze {
             file = old.file;
         }
 
-        /* For other rank and file values, use add so that the Vector
-           will be null if the displacement exceeds the maze bounds.
-           There is no constructor with rank and file arguments because
-           a constructor cannot produce a null.
-         */
-
         private Vector add( int ranks, int files) { 
             rank += ranks;
             file += files;
-            
-            // // for debugging: report resulting position
-            // System.out.println( "sum: " + rank + " / " + rankCount
-                              // + ", " +    file + " / " + maze[ rank].length );
-            
-            // still in bounds?
             if(    0 <= rank && rank < rankCount
                 && 0 <= file && file < maze[ rank].length
               )  return this;
             else return null;  // outside maze
         }
 
-
-        /**
-          @return whether this Vector matches the parameters
-         */
         private boolean equals( int rank, int file) {
             return this.rank == rank && this.file == file;
         }
