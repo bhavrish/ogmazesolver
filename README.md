@@ -5,10 +5,10 @@ Maze solver.
 Bhavesh Shah, George Shey
 
 ## statement of problem
-Is there a path between the start and 'treasure' of the maze exists?
+Return a boolean value of whether there is a path between the start and 'treasure'.
 
 ## recursive abstraction
-If asked to solve a maze, the recursive abstraction can solve a maze of size n-1 hallways. 
+When I am asked to find a path between the start and the 'treasure', the recursive abstraction can find a path to the treasure from the next point. 
 
 ## base case
 A maze of size 1 hallway would be the base case. 
