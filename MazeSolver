@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SolverofMaze {
+public class MazeSolver {
     public final static int TREASURE = 0;
     public final static int WALL = 1;
     public final static int STEPPING_STONE = 2;
