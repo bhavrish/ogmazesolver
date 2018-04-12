@@ -11,10 +11,10 @@ Return a boolean value of whether there is a path between the start and 'treasur
 When I am asked to find a path between the start and the 'treasure', the recursive abstraction can find a path to the treasure from the next point. 
 
 ## base case
-A maze of size 1 hallway would be the base case. 
+The base case would be when the explorer is on a wall (return false), or if the explorer is on the treasure (return true). 
 
 ## English or pseudocode description of algorithm
-Base case would solve a maze with only 1 hallway. For mazes that have more than 1 hallway, there would be an if statement that recognizes whether the current position is at a junction. If the if statement returns true, the object would travel up the North path first, and would continue forwards. If the object ultimately hits a barrier, it would recursively backtrack to the previous junction. Once the object is at the junction, it would then take the Eastwards pathway, and would repeat the same procedure. If this also fails, the user would return to the junction and take the Southward path, and if that also fails, then the user would take the Westwards path (in other words, the path the user chooses at the junction would be picked in a clockwise manner).
+Base case would solve a maze of size 1. For other mazes, the explorer would check to see if the next point is a legal point (not a wall, inside maze, etc.). The next point would be chosen in a clockwise manner (North, East, South, West). Once the explorer is on the next point, the recursive solution would try to find a path to the treasure from that new point. There would also be a variable called wasHere that would be set as true when an explorer leaves a point, so that if the explorer ends up at that point once again, the function would terminate. 
 
 ## class(es), with fields and methods
 Maze Class:
