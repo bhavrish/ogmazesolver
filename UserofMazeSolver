@@ -1,0 +1,20 @@
+public class UserOfMazeSolver {
+    
+    private static Displayer displayer;
+
+    public static void main(String[] commandLine)
+       throws java.io.FileNotFoundException {
+        System.out.println();
+        Maze maze = new Maze( commandLine[0], Integer.parseInt( commandLine[1]), Integer.parseInt( commandLine[2]));
+        System.out.println( maze + System.lineSeparator());
+       }
+
+    public void solveMaze() {
+        for (int row = 0; row < maze.length; row++)  
+            for (int col = 0; col < maze[row].length; col++){
+                wasHere[row][col] = false;
+                correctPath[row][col] = false;
+            }
+        boolean b = recursiveSolve(startX, startY);
+    }
+}
