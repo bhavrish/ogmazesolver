@@ -15,17 +15,21 @@ public class MazeSolver {
 		addSolve(current);
 		return true;
 	}
+	    
+	/**
         else {
             maze.dropA(Maze.WALL);
             Maze snapshot = new Maze(maze);
             for(int dir=0; dir<dirlist.length(); i++) {
                 maze.go(dir);	
-            if (recursiveSolve(maze)==false){						
-                maze= new Maze(snapshot);		
-                displayerTest(maze);
+            	if (recursiveSolve(maze)==false){						
+                	maze= new Maze(snapshot);		
+                	displayerTest(maze);
+            	}
+            	else return true;				          																							//					return true :)
             }
-            else return true;				          																							//					return true :)
-        }
-        return false;				
+            return false;
      }
+     **/
+    }
 }
