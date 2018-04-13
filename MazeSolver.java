@@ -42,7 +42,7 @@ public class MazeSolver {
 
 		
 
-        else {
+        /**else {
             maze.dropA(Maze.WALL);
             Maze snapshot = new Maze(maze);
             for(int dir=0; dir<dirlist.length(); i++) {
@@ -56,4 +56,5 @@ public class MazeSolver {
             return false;
      }
     }
+    **/
 }
