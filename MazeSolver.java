@@ -7,7 +7,7 @@ public class MazeSolver {
 		solvedMazes = new ArrayList<Maze>();
 	}
     
-    public boolean recursiveSolve(unsolvedMaze) {
+    public boolean recursiveSolve(Maze unsolvedMaze) {
         // explorer on a wall
 	if(current.explorerIsOnA() == Maze.WALL) {
 		return false;
