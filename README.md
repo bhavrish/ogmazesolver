@@ -30,3 +30,6 @@ Maze Solver Class:
 Version 0:
   -find and express if a path between start and destination exists with a boolean value
   -identify key parts of recursion
+
+## known bugs
+Version 0's base cases work. The recursive solution still needs some modification and is under development.
