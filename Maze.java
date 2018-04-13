@@ -1,3 +1,32 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Marketplace
+    Explore
+
+    @gshey
+
+2
+0
+
+    1
+
+cnissenbaum2019/OverOurHeads_0Berman-W_1Nissenbaum-C
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Insights
+OverOurHeads_0Berman-W_1Nissenbaum-C/Maze.java
+4aad6be 19 hours ago
+@cnissenbaum2019 cnissenbaum2019 WOW IT WORKS! mostly. All *.java files changed. A few bugs added to b…
+@cnissenbaum2019
+@willbo104
+244 lines (199 sloc) 8.03 KB
 /**
   Represent a Maze with an Explorer in it
   
@@ -29,11 +58,11 @@ public class Maze {
           in the unlikely event that we ever want to add north-west, etc.:
           2+4 --> 6  */
     
-    private int[][] maze;
+    public int[][] maze;
     private final static int MAX_RANKS = 64;
-    private int rankCount;  // number of ranks in a constructed Maze
+    public int rankCount;  // number of ranks in a constructed Maze
     
-    private Vector explorerPosition;  // see Vector inner class, below
+    public Vector explorerPosition;  // see Vector inner class, below
 
     /**
       Construct an instance from the contents of a file.
@@ -75,16 +104,48 @@ public class Maze {
         }
         
         explorerPosition = new Vector().add( explorerRank, explorerFile);
+        // for debugging: report explorer's location
+        //System.out.println( "explorer at " + explorerPosition.rank
+        //                  + ", " +           explorerPosition.file);
     }
 
+
+    /**
+      Copy-construct an instance.
+      Deep copy of all instance fields.
+     */
     public Maze( Maze old) {
+
+
         explorerPosition = new Vector( old.explorerPosition);
 
-        throw new java.lang.RuntimeException(
-            "Write code to copy the maze[][] array and rankCount.");
+        //initialize new maze lengths
+        maze = new int[old.rankCount][old.maze[0].length];
+
+        //clone old maze to new maze
+        for (int rank = 0; rank < old.rankCount; rank++) {
+          //System.out.println(old.maze[0].length);
+          for (int file = 0; file < old.maze[0].length; file++) {
+            maze[rank][file] = old.maze[rank][file];
+          }
+        }
+
+        //copy rank count
+        rankCount = old.rankCount;
+
+        //throw new java.lang.RuntimeException(
+        //    "Write code to copy the maze[][] array and rankCount.");
     }
 
+
+    /**
+      @return a string representing of this instance
+     */
     public String toString() {
+        
+        /* characters that represent elements of the maze,
+           indexed by the numbers used to represent elements
+          */
         final String outChar = "0 *";  // no explorer here
         final String exOnTop = "!Ee";  /* explorer on top of
            treasure, wall, stepping stone, etc. */
@@ -114,6 +175,14 @@ public class Maze {
         return   result + aboveAndBelow;
     }
 
+
+    /**
+      Move the Explorer a step in the indicated direction.
+      Attempting to position the explorer outside the maze means
+      it has no position.
+      
+      @precondition: explorer starts in a valid position
+     */
     public void go( int direction)  { 
         switch( direction) {
             case EAST:
@@ -131,16 +200,35 @@ public class Maze {
         }
     }
 
+
+    /**
+      Modify the maze to have @mazeElement in the explorer's position.
+      Nix dropping treasure.
+     */
     public void dropA( int mazeElement) {
         if( mazeElement != TREASURE)
-            maze[ explorerPosition.rank][ explorerPosition.file] = mazeElement;
+            maze[explorerPosition.rank][explorerPosition.file] = mazeElement;
     }
 
+
+    /**
+      @return the MazeElement that the explorer is on.
+              When the explorer's position is null, return WALL
+              because the user-programmer's code is expected to benefit
+              from that equivalence.
+     */
     public int explorerIsOnA() {
         if( explorerPosition == null) return WALL;
         else return maze[ explorerPosition.rank][ explorerPosition.file];
     }
 
+
+    /**
+       a pair of rank & file that can represent...
+         o  a displacement from the current location
+         o  a location in a maze, being a displacement from (0,0)
+       A location outside the maze is represented by a null Vector.
+     */
     private class Vector {
         private int rank, file;
         
@@ -153,15 +241,31 @@ public class Maze {
             file = old.file;
         }
 
+        /* For other rank and file values, use add so that the Vector
+           will be null if the displacement exceeds the maze bounds.
+           There is no constructor with rank and file arguments because
+           a constructor cannot produce a null.
+         */
+
         private Vector add( int ranks, int files) { 
             rank += ranks;
             file += files;
+            
+            // // for debugging: report resulting position
+            // System.out.println( "sum: " + rank + " / " + rankCount
+                              // + ", " +    file + " / " + maze[ rank].length );
+            
+            // still in bounds?
             if(    0 <= rank && rank < rankCount
                 && 0 <= file && file < maze[ rank].length
               )  return this;
             else return null;  // outside maze
         }
 
+
+        /**
+          @return whether this Vector matches the parameters
+         */
         private boolean equals( int rank, int file) {
             return this.rank == rank && this.file == file;
         }
