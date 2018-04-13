@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class MazeSolver {
     private final static int[] dirlist = {Maze.EAST, Maze.NORTH, Maze.WEST, Maze.SOUTH};
     
-    public MazeSolver () {		
-		solvedMazes = new ArrayList<Maze>();
-	}
+    //public MazeSolver () {		
+	//	solvedMazes = new ArrayList<Maze>();
+	//}
     
     public boolean recursiveSolve(Maze unsolvedMaze) {
         // explorer on a wall
@@ -15,7 +15,6 @@ public class MazeSolver {
 	
 	// explorer on the treasure
 	else if(current.explorerIsOnA() == Maze.TREASURE) {
-		addSolve(current);
 		return true;
 	}
 	
