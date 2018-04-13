@@ -20,7 +20,7 @@ public class MazeSolver {
 	}
 	
 	// recursive case
-	else if(current.explorerIsOnA() == Maze.STEPPING_STONE) {
+	/**else if(current.explorerIsOnA() == Maze.STEPPING_STONE) {
 		
 		// create snapshot of unsolvedMaze
 		Maze snapshot = new Maze(unsolvedMaze);
@@ -37,10 +37,11 @@ public class MazeSolver {
 		}
 	}
 	return false; //unsolved
+	**/
     }
 
 		
-	/**
+
         else {
             maze.dropA(Maze.WALL);
             Maze snapshot = new Maze(maze);
@@ -54,6 +55,5 @@ public class MazeSolver {
             }
             return false;
      }
-     **/
     }
 }
