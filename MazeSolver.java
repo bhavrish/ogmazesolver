@@ -7,15 +7,39 @@ public class MazeSolver {
 		solvedMazes = new ArrayList<Maze>();
 	}
     
-    public boolean recursiveSolve(int x, int y) {
-        if(current.explorerIsOnA() == Maze.WALL) {
+    public boolean recursiveSolve(unsolvedMaze) {
+        // explorer on a wall
+	if(current.explorerIsOnA() == Maze.WALL) {
 		return false;
 	}
+	
+	// explorer on the treasure
 	else if(current.explorerIsOnA() == Maze.TREASURE) {
 		addSolve(current);
 		return true;
 	}
-	    
+	
+	// recursive case
+	else if(current.explorerIsOnA() == Maze.STEPPING_STONE) {
+		
+		// create snapshot of unsolvedMaze
+		Maze snapshot = new Maze(unsolvedMaze);
+		
+		// move explorer in every possible direction
+		for (int n = 1; n < 9; n = n*2) {
+			unsolvedMaze.go(n);
+			//explorer on treasure
+			if(recursiveSolve(unsolvedMaze)) == true{
+				//input code to record solution
+				//how do we update n so that when recursiveSolve is recursively called on the snapshot the explorer does not move in the same direction
+			}
+			recursiveSolve
+		}
+	}
+	return false; //unsolved
+    }
+
+		
 	/**
         else {
             maze.dropA(Maze.WALL);
