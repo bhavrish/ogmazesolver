@@ -5,7 +5,7 @@ public class UserOfMazeSolver {
         Maze maze = new Maze( commandLine[0], Integer.parseInt( commandLine[1]), Integer.parseInt( commandLine[2]));
         System.out.println( maze + System.lineSeparator());
         MazeSolver test = new MazeSolver();
-        System.out.println(test.solveMaze(maze));
+        System.out.println(test.recursiveSolve(maze));
         System.out.println(test);
     }
 }
