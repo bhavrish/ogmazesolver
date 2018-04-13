@@ -34,9 +34,8 @@ public class MazeSolver {
 			}
 			recursiveSolve
 		}
-	}
-	return false; //unsolved
-	**/
+	}**/
+	return false;
     }
 
 		
