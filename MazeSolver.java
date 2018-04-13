@@ -9,12 +9,12 @@ public class MazeSolver {
     
     public boolean recursiveSolve(Maze unsolvedMaze) {
         // explorer on a wall
-	if(current.explorerIsOnA() == Maze.WALL) {
+	if(unsolvedMaze.explorerIsOnA() == Maze.WALL) {
 		return false;
 	}
 	
 	// explorer on the treasure
-	else if(current.explorerIsOnA() == Maze.TREASURE) {
+	else if(unsolvedMaze.explorerIsOnA() == Maze.TREASURE) {
 		return true;
 	}
 	
