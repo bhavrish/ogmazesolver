@@ -30,6 +30,9 @@ Maze Solver Class:
 Version 0:
   -find and express if a path between start and destination exists with a boolean value
   -identify key parts of recursion
+Version 1:
+  -establish code for the recursive case, invoked if the explorer is on a stepping stone
+  -create a section of recursiveSolve that takes a snapshot of the current maze
 
 ## known bugs
 Version 0's base cases work. The recursive solution still needs some modification and is under development.
