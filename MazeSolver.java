@@ -23,7 +23,7 @@ public class MazeSolver {
 	}
 	
 	else {
-            for(int dir=0; dir < dirlist.length(); dir++) {
+            for(int dir=0; dir < 4; dir++) { //4 was originally "dirlist.length()" but that produced an error
             	Maze snapshot = new Maze(currentmaze);
 		currentmaze.dropA(Maze.WALL);
                 currentmaze.go(dir);	
