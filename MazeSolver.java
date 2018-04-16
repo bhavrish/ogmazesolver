@@ -27,7 +27,7 @@ public class MazeSolver {
             	Maze snapshot = new Maze(currentmaze);
 		currentmaze.dropA(Maze.WALL);
                 currentmaze.go(dir);	
-            	if (recursiveSolve(snapshot)){						
+            	if (recursiveSolve(unsolvedMaze)){						
                 	return true;
             	}
             	else {
