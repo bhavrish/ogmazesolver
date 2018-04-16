@@ -23,8 +23,8 @@ Maze Class:
 3) Conditions method (checks to see if object hits wall or not).
 4) Tostring method that prints solution to maze.
 
-Maze Solver Class:
-1) Method that solves tha maze.
+UserOfMazeSolver Class:
+1) Recursive method to find if there is a solution to the treasure in the maze.
 
 ## version*n* wish list
 Version 0:
