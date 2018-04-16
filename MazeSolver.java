@@ -23,7 +23,7 @@ public class MazeSolver {
 	}
 	
 	else {
-            for(int dir=0; dir<dirlist.length(); i++) {
+            for(int dir=0; dir < dirlist.length(); dir++) {
             	Maze snapshot = new Maze(currentmaze);
 		currentmaze.dropA(Maze.WALL);
                 currentmaze.go(dir);	
