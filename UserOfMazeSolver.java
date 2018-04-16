@@ -8,6 +8,6 @@ public class UserOfMazeSolver {
         System.out.println( maze + System.lineSeparator());
         MazeSolver mazeSolver = new MazeSolver(maze, Integer.parseInt( commandLine[3]));
         MazeSolver test = new MazeSolver();
-        System.out.println(test.recursiveSolve());
+        System.out.println(test.recursiveSolve(maze));
     }
 }
