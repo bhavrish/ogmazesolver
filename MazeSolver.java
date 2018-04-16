@@ -3,56 +3,38 @@ import java.util.Scanner;
 public class MazeSolver {
     private final static int[] dirlist = {Maze.EAST, Maze.NORTH, Maze.WEST, Maze.SOUTH};
     
-    //public MazeSolver () {		
-	//	solvedMazes = new ArrayList<Maze>();
-	//}
+    private Maze currentmaze;
+    private static Displayer displayer;
+	
+    public MazeSolver(Maze input, int windowHeight) {
+	currentmaze = new Maze(input);
+	displayer = new Displayer(windowHeight);
+    }
     
     public boolean recursiveSolve(Maze unsolvedMaze) {
         // explorer on a wall
-	if(unsolvedMaze.explorerIsOnA() == Maze.WALL) {
+	if(currentmaze.explorerIsOnA() == Maze.WALL) {
 		return false;
 	}
 	
 	// explorer on the treasure
-	else if(unsolvedMaze.explorerIsOnA() == Maze.TREASURE) {
+	else if(currentmaze.explorerIsOnA() == Maze.TREASURE) {
 		return true;
 	}
 	
-	// recursive case
-	/**else if(current.explorerIsOnA() == Maze.STEPPING_STONE) {
-		
-		// create snapshot of unsolvedMaze
-		Maze snapshot = new Maze(unsolvedMaze);
-		
-		// move explorer in every possible direction
-		for (int n = 1; n < 9; n = n*2) {
-			unsolvedMaze.go(n);
-			//explorer on treasure
-			if(recursiveSolve(unsolvedMaze)) == true{
-				//input code to record solution
-				//how do we update n so that when recursiveSolve is recursively called on the snapshot the explorer does not move in the same direction
-			}
-			recursiveSolve
-		}
-	}**/
-	return false;
-    }
-
-		
-
-        /**else {
-            maze.dropA(Maze.WALL);
-            Maze snapshot = new Maze(maze);
+	else {
             for(int dir=0; dir<dirlist.length(); i++) {
-                maze.go(dir);	
-            	if (recursiveSolve(maze)==false){						
-                	maze= new Maze(snapshot);		
-                	displayerTest(maze);
+            	Maze snapshot = new Maze(currentmaze);
+		currentmaze.dropA(Maze.WALL);
+                currentmaze.go(dir);	
+            	if (recursiveSolve()){						
+                	return true;
             	}
-            	else return true;				          																							//					return true :)
+            	else {
+			currentmaze= new Maze(snapshot);
+		}
             }
             return false;
-     }
+	}
     }
-    **/
 }
