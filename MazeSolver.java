@@ -11,7 +11,7 @@ public class MazeSolver {
 	displayer = new Displayer(windowHeight);
     }
     
-    public boolean recursiveSolve(Maze unsolvedMaze) {
+    public boolean recursiveSolve() {
         // explorer on a wall
 	if(currentmaze.explorerIsOnA() == Maze.WALL) {
 		return false;
@@ -27,7 +27,7 @@ public class MazeSolver {
             	Maze snapshot = new Maze(currentmaze);
 		currentmaze.dropA(Maze.WALL);
                 currentmaze.go(dir);	
-            	if (recursiveSolve(unsolvedMaze)){						
+            	if (recursiveSolve()){						
                 	return true;
             	}
             	else {
